@@ -32,6 +32,7 @@ jobs:
           VITE_RIFTCODEX_PROXY_URL: ${{ secrets.VITE_RIFTCODEX_PROXY_URL }}
           GITHUB_ACTIONS: true
           GITHUB_REPOSITORY: ${{ github.repository }}
+      - run: touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
