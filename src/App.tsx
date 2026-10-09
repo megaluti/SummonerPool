@@ -282,7 +282,7 @@ function AuthScreen({ error, setError }: { error: string; setError: (s: string) 
     setError(""); setNotice(""); setLoading(true);
     try {
       if (mode === "signup") {
-        const { error: e } = await supabase.auth.signUp({ email, password, options: { data: { display_name: name } } });
+        const { error: e } = await supabase.auth.signUp({ email, password, options: { data: { display_name: name }, emailRedirectTo: window.location.href } });
         if (e) throw e;
         setNotice("Check your email to confirm the account, then sign in.");
       } else {
